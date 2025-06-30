@@ -24,6 +24,10 @@ export default function App() {
     };
   }, []);
 
+  const isLandscape =
+    orientation === ScreenOrientation.Orientation.LANDSCAPE_LEFT ||
+    orientation === ScreenOrientation.Orientation.LANDSCAPE_RIGHT;
+
   return (
     <View style={styles.outerDiv}>
       <Text style={styles.header}>Pack Your Bags</Text>
@@ -31,11 +35,7 @@ export default function App() {
         source={require("../assets/images/suitcase.jpg")}
         style={[
           styles.image,
-          orientation &&
-            (orientation === ScreenOrientation.Orientation.LANDSCAPE_LEFT ||
-            orientation === ScreenOrientation.Orientation.LANDSCAPE_RIGHT
-              ? styles.imageLandscape
-              : styles.imagePortrait),
+          isLandscape ? styles.imageLandscape : styles.imagePortrait,
         ]}
       />
       <Link href="/tripList" asChild>
@@ -61,9 +61,15 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto_700Bold",
   },
   image: {
-    width: "90%", // 50% of container width
-    height: 100,
-    aspectRatio: 1, // keeps image square, adjust as needed
+    width: "90%",
+    aspectRatio: 1,
     resizeMode: "contain",
+  },
+  imagePortrait: {
+    height: 250,
+  },
+  imageLandscape: {
+    height: 150,
+    margin: 15,
   },
 });

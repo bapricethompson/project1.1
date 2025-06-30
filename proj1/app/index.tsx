@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 32,
     fontWeight: "bold",
+    fontFamily: "Roboto_700Bold",
   },
   image: {
     width: "90%", // 50% of container width

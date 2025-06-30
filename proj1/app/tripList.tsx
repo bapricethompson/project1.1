@@ -33,9 +33,11 @@ const styles = StyleSheet.create({
   location: {
     fontSize: 18,
     fontWeight: "bold",
+    fontFamily: "Roboto_700Bold",
   },
   date: {
     fontSize: 14,
     color: "#666",
+    fontFamily: "Roboto_400Regular",
   },
 });

@@ -9,6 +9,8 @@ export default function PackingList() {
   const tripID = Number(params.tripID);
   const packingListForTrip = packing_lists[tripID];
   const [checkedItems, setCheckedItems] = useState({});
+  const [newItem, setNewItem] = useState("");
+  const [packingList, setPackingList] = useState(packingListForTrip);
 
   const toggleCheckbox = (index) => {
     setCheckedItems((prev) => ({
@@ -28,7 +30,7 @@ export default function PackingList() {
   return (
     <View style={styles.container}>
       <Text style={styles.header}> Your Items:</Text>
-      <ScrollView>
+      <ScrollView style={styles.scrollView}>
         {packingListForTrip.map((item, index) => (
           <View key={index} style={styles.itemRow}>
             <Checkbox
@@ -53,7 +55,11 @@ export default function PackingList() {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 16,
+  },
+  scrollView: {
+    flex: 1,
   },
   itemRow: {
     flexDirection: "row",
@@ -67,15 +73,18 @@ const styles = StyleSheet.create({
     color: "#000",
     width: "80%",
     alignSelf: "center",
+    fontFamily: "Roboto_400Regular",
   },
   header: {
     textAlign: "left",
     fontSize: 24,
     padding: 10,
     fontWeight: "bold",
+    fontFamily: "Roboto_700Bold",
   },
   itemTextChecked: {
     textDecorationLine: "line-through",
     color: "#888",
+    fontFamily: "Roboto_400Regular",
   },
 });

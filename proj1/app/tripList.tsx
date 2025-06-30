@@ -6,7 +6,12 @@ export default function Trips() {
     <View style={styles.container}>
       {trips.map((trip) => (
         <Link key={trip.id} href={`/packingList?tripID=${trip.id}`} asChild>
-          <TouchableOpacity style={styles.tripCard}>
+          <TouchableOpacity
+            style={styles.tripCard}
+            accessibilityRole="button"
+            accessibilityLabel={`Trip to ${trip.location}`}
+            testID={`trip-card-${trip.id}`}
+          >
             <Text style={styles.location}>{trip.location}</Text>
             <Text style={styles.date}>
               {trip.date_range.start} – {trip.date_range.end}

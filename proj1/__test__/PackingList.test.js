@@ -1,6 +1,6 @@
 import { fireEvent, render } from "@testing-library/react-native";
-import packing_lists from "../data/packingLists";
-import PackingList from "../packingList";
+import packing_lists from "../app/data/packingLists";
+import PackingList from "../app/packingList";
 
 describe("PackingList Screen", () => {
   const tripID = 1;

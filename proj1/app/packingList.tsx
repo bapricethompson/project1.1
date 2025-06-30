@@ -4,9 +4,9 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { Checkbox } from "react-native-paper"; // <-- Import Checkbox here
 import packing_lists from "./data/packingLists";
 
-export default function PackingList() {
+export default function PackingList({ tripID: testTripID }) {
   const params = useLocalSearchParams();
-  const tripID = Number(params.tripID);
+  const tripID = testTripID ?? Number(params.tripID);
   const packingListForTrip = packing_lists[tripID];
   const [checkedItems, setCheckedItems] = useState({});
   const [newItem, setNewItem] = useState("");
@@ -34,11 +34,13 @@ export default function PackingList() {
         {packingListForTrip.map((item, index) => (
           <View key={index} style={styles.itemRow}>
             <Checkbox
+              testID={`checkbox-${index}`}
               status={checkedItems[index] ? "checked" : "unchecked"}
               onPress={() => toggleCheckbox(index)}
               color="#F4A261" // optional: checkbox color when checked
             />
             <Text
+              testID={`item-text-${index}`}
               style={[
                 styles.itemText,
                 checkedItems[index] && styles.itemTextChecked,

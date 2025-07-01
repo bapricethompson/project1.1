@@ -1,11 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Pressable, StyleSheet, Text } from "react-native";
 
 export default function Button({ label, onPress, icon, style }) {
   return (
-    <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
+    <Pressable style={[styles.button, style]} onPress={onPress}>
       {icon}
       <Text style={styles.text}>{label}</Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 }
 

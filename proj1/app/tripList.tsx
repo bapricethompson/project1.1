@@ -1,12 +1,12 @@
 import { Link } from "expo-router";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import trips from "./data/trips";
 export default function Trips() {
   return (
     <View style={styles.container}>
       {trips.map((trip) => (
         <Link key={trip.id} href={`/packingList?tripID=${trip.id}`} asChild>
-          <TouchableOpacity
+          <Pressable
             style={styles.tripCard}
             accessibilityRole="button"
             accessibilityLabel={`Trip to ${trip.location}`}
@@ -16,7 +16,7 @@ export default function Trips() {
             <Text style={styles.date}>
               {trip.date_range.start} – {trip.date_range.end}
             </Text>
-          </TouchableOpacity>
+          </Pressable>
         </Link>
       ))}
     </View>

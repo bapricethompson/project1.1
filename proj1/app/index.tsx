@@ -61,12 +61,12 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto_700Bold",
   },
   image: {
-    width: "90%",
+    width: "100%",
     aspectRatio: 1,
     resizeMode: "contain",
   },
   imagePortrait: {
-    height: 250,
+    height: 350,
   },
   imageLandscape: {
     height: 150,

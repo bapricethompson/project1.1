@@ -12,6 +12,7 @@ RoamReady is a React Native Expo app designed to help users plan and pack for tr
 - Screen orientation detection and responsive UI with `expo-screen-orientation`
 - Navigation handled by `expo-router`
 - Smooth user experience with React Native Paper components
+- Used image package to render the image 
 
 ---
 

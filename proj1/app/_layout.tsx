@@ -56,7 +56,10 @@ export default function RootLayout() {
           headerTintColor: "white",
         }}
       >
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="index" />
+        <Stack.Screen name="tripList" />
+        <Stack.Screen name="packingList" />
+        <Stack.Screen name="summary" />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />

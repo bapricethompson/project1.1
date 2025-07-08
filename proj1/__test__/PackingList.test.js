@@ -1,4 +1,9 @@
-import { fireEvent, render } from "@testing-library/react-native";
+import {
+  fireEvent,
+  render,
+  userEvent,
+  waitFor,
+} from "@testing-library/react-native";
 import packing_lists from "../app/data/packingLists";
 import PackingList from "../app/packingList";
 
@@ -44,5 +49,22 @@ describe("PackingList Screen", () => {
   it("renders the heading", () => {
     const { getByText } = setup();
     expect(getByText(/your items/i)).toBeTruthy();
+  });
+
+  it("marks an item as checked using userEvent", async () => {
+    const { getByTestId } = render(<PackingList tripID={1} />);
+
+    const checkbox = getByTestId("checkbox-0");
+
+    await userEvent.press(checkbox);
+
+    await waitFor(() => {
+      const itemText = getByTestId("item-text-0");
+      expect(itemText.props.style).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({ textDecorationLine: "line-through" }),
+        ])
+      );
+    });
   });
 });

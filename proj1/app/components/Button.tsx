@@ -1,8 +1,29 @@
+import { LinkProps } from "expo-router";
 import { Pressable, StyleSheet, Text } from "react-native";
 
-export default function Button({ label, onPress, icon, style }) {
+interface ButtonProps extends LinkProps {
+  label: string;
+  onPress?: () => void;
+  icon?: React.ReactNode;
+  style?: any;
+  testID?: string;
+}
+
+export default function Button({
+  label,
+  onPress,
+  icon,
+  style,
+  testID,
+  ...props
+}: ButtonProps) {
   return (
-    <Pressable style={[styles.button, style]} onPress={onPress}>
+    <Pressable
+      style={[styles.button, style]}
+      onPress={onPress}
+      testID={testID}
+      {...props}
+    >
       {icon}
       <Text style={styles.text}>{label}</Text>
     </Pressable>

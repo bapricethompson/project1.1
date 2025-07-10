@@ -2,12 +2,12 @@ import { useLocalSearchParams } from "expo-router";
 import { useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { Checkbox } from "react-native-paper"; // <-- Import Checkbox here
-import packing_lists from "./data/packingLists";
+import { getPackingListForTrip } from "./utils/getPackingListForTrip";
 
 export default function PackingList({ tripID: testTripID }) {
   const params = useLocalSearchParams();
   const tripID = testTripID ?? Number(params.tripID);
-  const packingListForTrip = packing_lists[tripID];
+  const packingListForTrip = getPackingListForTrip(tripID);
   const [checkedItems, setCheckedItems] = useState({});
   const [newItem, setNewItem] = useState("");
   const [packingList, setPackingList] = useState(packingListForTrip);

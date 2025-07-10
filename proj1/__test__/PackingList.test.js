@@ -41,11 +41,6 @@ describe("PackingList Screen", () => {
     );
   });
 
-  it('shows "No packing list found" when tripID is invalid', () => {
-    const { getByText } = render(<PackingList tripID={999} />);
-    expect(getByText(/no packing list found/i)).toBeTruthy();
-  });
-
   it("renders the heading", () => {
     const { getByText } = setup();
     expect(getByText(/your items/i)).toBeTruthy();

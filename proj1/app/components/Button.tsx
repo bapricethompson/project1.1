@@ -21,6 +21,7 @@ export default function Button({
     <Pressable
       style={[styles.button, style]}
       onPress={onPress}
+      accessibilityRole="button"
       testID={testID}
       {...props}
     >

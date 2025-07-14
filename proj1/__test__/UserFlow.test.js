@@ -25,22 +25,22 @@ describe("view a packing list", () => {
         }
       );
     });
-    const button = await screen.findByTestId("get-packin-button");
-    await user.press(button);
+    const getPackinButton = await screen.findByText(/get packin/i);
+    await user.press(getPackinButton);
 
     expect(screen).toHavePathname("/tripList");
 
-    const tripCard = await screen.findByTestId("trip-card-1");
+    const tripCard = await screen.findByText(/paris, france/i);
     await user.press(tripCard);
 
     await waitFor(() => {
       expect(screen).toHavePathname("/packingList");
     });
 
-    const checkbox = await screen.findByTestId("checkbox-0");
+    const checkbox = await screen.findByRole("checkbox", { name: /passport/i });
     await user.press(checkbox);
 
-    const itemText = screen.getByTestId("item-text-0");
+    const itemText = screen.getByText(/passport/i);
     expect(itemText.props.style).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ textDecorationLine: "line-through" }),

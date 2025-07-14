@@ -35,6 +35,7 @@ export default function PackingList({ tripID: testTripID }) {
           <View key={index} style={styles.itemRow}>
             <Checkbox
               testID={`checkbox-${index}`}
+              accessibilityLabel={item}
               status={checkedItems[index] ? "checked" : "unchecked"}
               onPress={() => toggleCheckbox(index)}
               color="#F4A261" // optional: checkbox color when checked
